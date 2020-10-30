@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
+// Route::get('blog/{name?}', function() {
+//     return view('frontend.blog')->name('front.blog');
+// });
+
+Route::get('blog', [TestController::class, 'test'])->name('blog.index');
